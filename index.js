@@ -25,7 +25,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Connected Server");
 });
 
 app.post("/register", (req, res) => {
@@ -43,5 +43,5 @@ app.post("/register", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Connected Server::: localhost:${port}`);
 });
