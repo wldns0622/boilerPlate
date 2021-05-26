@@ -3,6 +3,7 @@ const app = express();
 const port = 5000;
 const bodyParser = require("body-parser");
 const { User } = require("./models/User");
+const config = require("./config/key");
 
 // application/x-www-form-urlencoded를 분석
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,15 +13,12 @@ app.use(bodyParser.json());
 // 몽구스를 이용해 앱과 몽고디비를 연결
 const mongoose = require("mongoose");
 mongoose
-  .connect(
-    "mongodb+srv://quokka:0000@boilerplate.aguen.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log(":::MongoDB CONNECT:::"))
   .catch((err) => console.log(err));
 
