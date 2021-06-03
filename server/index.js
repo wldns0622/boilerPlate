@@ -5,20 +5,12 @@ const cookieParser = require('cookie-parser');
 const config = require('./config/key');
 const { auth } = require('./middleware/auth');
 const { User } = require('./models/User');
-const cors = require('cors');
 
 // application/x-www-form-urlencoded를 분석
 app.use(bodyParser.urlencoded({ extended: true }));
 // application/json 타입의 데이터를 분석
 app.use(bodyParser.json());
 app.use(cookieParser());
-
-app.use(
-  cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  })
-);
 
 // 몽구스를 이용해 앱과 몽고디비를 연결
 const mongoose = require('mongoose');
@@ -34,6 +26,10 @@ mongoose
 
 app.get('/', (req, res) => {
   res.send('Connected Server');
+});
+
+app.get('/api/hello', (req, res) => {
+  res.send('안녕 세상아!');
 });
 
 app.get('/api/hello', (req, res) => {
