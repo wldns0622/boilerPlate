@@ -1,6 +1,11 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../_actions/user_action';
 
 function LoginPage(props) {
+  const dispatch = useDispatch();
+
   // 상태
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,6 +19,16 @@ function LoginPage(props) {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    console.log(`Email : ${email}`);
+    console.log(`Password : ${password}`);
+
+    let body = { email, password };
+
+    dispatch(loginUser(body)).then((response) => {
+      if (response.payload.loginSuccess) {
+        props.history.push('/');
+      }
+    });
   };
 
   return (

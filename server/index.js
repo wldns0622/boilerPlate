@@ -32,10 +32,6 @@ app.get('/api/hello', (req, res) => {
   res.send('안녕 세상아!');
 });
 
-app.get('/api/hello', (req, res) => {
-  res.send('hello world');
-});
-
 app.post('/api/users/register', (req, res) => {
   // 회원가입 할때 필요한 정보들을 client에서 가져오면 그것들을 데이터 베이스에 넣어준다.
   const user = new User(req.body);
@@ -78,7 +74,7 @@ app.post('/api/users/login', (req, res) => {
         res
           .cookie('x_auth', user.token)
           .status(200)
-          .json({ loaginSuccess: true, userId: user._id });
+          .json({ loginSuccess: true, userId: user._id });
       });
     });
   });
