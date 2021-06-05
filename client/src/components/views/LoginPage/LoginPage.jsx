@@ -1,7 +1,7 @@
 import React from 'react';
 
 function LoginPage(props) {
-  return <div>LoginPage</div>;
+  return <div>Login Page</div>;
 }
 
 export default LoginPage;
