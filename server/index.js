@@ -26,6 +26,11 @@ mongoose.connect(config.mongoURI)
 /** 루트 라우터 */
 app.get('/', (req, res) => res.send('hello, world!'));
 
+/** 리액트 테스트 라우터 */
+app.get('/api/hello', (req, res) => {
+  res.send('hello!!');
+})
+
 /** 회원가입 라우터 */
 app.post('/api/users/register', (req, res) => {
   const user = new User(req.body);
