@@ -1,9 +1,17 @@
-// express 받아오기
 const express = require('express');
-// app 만들기
+const mongoose = require('mongoose');
+
 const app = express();
-// server port번호 지정
 const port = 5000;
+
+mongoose.connect(`mongodb+srv://daramjwi:1q2w3e4r!1@boilerplate.itvuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
+  // useNewUrlParse: true,
+  // useUnifiedTopology: true,
+  // useCreateIndex: true,
+  // useFindAndModify: false
+})
+.then(() => console.log('MongoDB Connected...'))
+.catch((err) => console.log(err));
 
 app.get('/', (req, res) => res.send('Hello, World!'));
 
