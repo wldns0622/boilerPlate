@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // model
 const { User } =require("./models/User");
+const config = require('./config/key');
 
 const app = express();
 const port = 5000;
@@ -13,11 +14,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 // pplication/json
 app.use(bodyParser.json());
 
-mongoose.connect(`mongodb+srv://daramjwi:1q2w3e4r!1@boilerplate.itvuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
+mongoose.connect(config.mongoURI)
 .then(() => console.log('MongoDB Connected...'))
 .catch((err) => console.log(err));
 
-app.get('/', (req, res) => res.send('wow!'));
+app.get('/', (req, res) => res.send('hello, world!'));
 
 app.post('/register', (req, res) => {
   const user = new User(req.body);
