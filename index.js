@@ -18,10 +18,14 @@ mongoose.connect(config.mongoURI)
 .then(() => console.log('MongoDB Connected...'))
 .catch((err) => console.log(err));
 
+/** 루트 라우터 */
 app.get('/', (req, res) => res.send('hello, world!'));
 
+/** 회원가입 라우터 */
 app.post('/register', (req, res) => {
   const user = new User(req.body);
+
+  
 
   user.save((err, doc) => {
     if(err) return res.json({success: false, err});
