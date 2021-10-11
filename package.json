@@ -1,0 +1,23 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wldns0622/boilerPlate.git"
+  },
+  "author": "wldns0622",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wldns0622/boilerPlate/issues"
+  },
+  "homepage": "https://github.com/wldns0622/boilerPlate#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
